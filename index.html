@@ -3,191 +3,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home page</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
-    <link href="./output.css" rel="stylesheet">
+    <title>Recidencia Del Hamor</title>
     <script src="https://cdn.tailwindcss.com"></script>
-
-
     <style>
-        .luxury-font {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(2rem, 5vw, 5rem);
-    font-weight: 700;
-    letter-spacing: 2px;
-}
-
-
-        .booking-btn {
-            background-color: #007bff;
-            color: white;
-            font-weight: bold;
-            padding: 1rem 2rem;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: background-color 0.3s ease-in-out;
-            font-size: clamp(1rem, 2vw, 1.5rem);
-        }
-
-        .booking-btn:hover {
-            background-color: #5e6164;
-        }
-
-        .nav-button {
-            background-color: #007bff;
-            color: white;
-            border: 2px solid white;
-            padding: 0.8rem 2rem;
-            border-radius: 30px;
-            font-size: clamp(0.8rem, 2vw, 1rem);
-            cursor: pointer;
-            transition: background-color 0.3s ease-in-out;
-            text-align: center;
-            font-weight: bold;
-            min-width: 120px;
-        }
-
-        .nav-button:hover {
-            background-color: #b0d3f7;
-        }
-
-        .hamburger {
-            display: none;
-            font-size: 2rem;
-            cursor: pointer;
-            color: white;
-            position: absolute;
-            right: 20px;
-        }
-
-        .nav-menu {
-            display: flex;
-            gap: 20px;
-        }
-
-        @media (max-width: 768px) {
-            .hamburger {
-                display: block;
-            }
-
-            .nav-menu {
-                display: none;
-                flex-direction: column;
-                gap: 10px;
-                background-color: #007bff;
-                padding: 10px;
-                border-radius: 10px;
-                position: absolute;
-                right: 20px;
-                top: 60px;
-                z-index: 1000;
-            }
-
-            .nav-menu.active {
-                display: flex;
-            }
-
-            .logo-container {
-                margin-right: auto;
-            }
-        }
-
-        @media (min-width: 769px) {
-            .logo-container {
-                margin-left: 20px;
-                margin-right: auto;
-            }
-        }
-
-        .slider {
-            width: 100%;
-            height: 100vh;
-            object-fit: cover;
-            position: absolute;
-            top: 0;
-            left: 0;
-            opacity: 0;
-            transition: opacity 1s ease-in-out;
-        }
-
-        .slider.fade {
-            opacity: 1;
-        }
-
         body {
-            font-size: clamp(14px, 2vw, 18px);
+            font-family: 'Poppins', sans-serif;
         }
-
-        .logo-text {
-            font-size: clamp(1.5rem, 3vw, 2.5rem);
-        }
-        body {
-    font-family: 'Poppins', sans-serif;
-}
-
-
     </style>
 </head>
-<body class="bg-white text-white">
-    <nav class="bg-blue-500 p-4 flex flex-col md:flex-row items-center justify-between gap-4 relative">
-        <div class="logo-container flex items-center">
-            <img src="https://th.bing.com/th/id/OIP.IhgWlJj9rzgxwht2bdpgSgHaFV?rs=1&pid=ImgDetMain" 
-            alt="Resort Logo" class="w-16 h-16 rounded-full object-cover">
-            <a href="index.html" class="text-white text-2xl resort-font ml-2">Recidencia Del Hamor</a>
+<body class="bg-gray-100 text-black">
 
-        </div>
-        <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
-        <div class="nav-menu">
-            <button class="nav-button" onclick="location.href='index.html'">Home</button>
-            <button class="nav-button" onclick="location.href='accommodations.html'">Accommodations</button>
-            <button class="nav-button" onclick="location.href='amenities.html'">Amenities</button>
-            <button class="nav-button" onclick="location.href='contact.html'">Contact Us</button>
+    <!-- Navbar -->
+    <nav class="bg-blue-500 p-4 fixed top-0 left-0 right-0 z-50 shadow-lg">
+        <div class="flex justify-between items-center relative pl-4"> 
+            <div class="flex items-center">
+                <img src="https://th.bing.com/th/id/OIP.IhgWlJj9rzgxwht2bdpgSgHaFV?rs=1&pid=ImgDetMain" 
+                    alt="Resort Logo" class="w-12 h-12 rounded-full object-cover">
+                <a href="index.html" class="text-white text-2xl font-bold ml-2">Recidencia Del Hamor</a>
+            </div>
+    
+            <!-- Burger Menu Icon -->
+            <div class="md:hidden text-white text-3xl cursor-pointer z-50 relative" id="burger-menu">&#9776;</div>
+            <div class="hidden md:flex space-x-4">
+                <button onclick="location.href='index.html'" class="px-5 py-3 bg-blue-500 text-white text-lg font-semibold rounded-md hover:bg-blue-700 transition">Home</button>
+                <button onclick="location.href='accommodations.html'" class="px-5 py-3 bg-blue-500 text-white text-lg font-semibold rounded-md hover:bg-blue-700 transition">Accommodations</button>
+                <button onclick="location.href='amenities.html'" class="px-5 py-3 bg-blue-500 text-white text-lg font-semibold rounded-md hover:bg-blue-700 transition">Amenities</button>
+                <button onclick="location.href='contact.html'" class="px-5 py-3 bg-blue-500 text-white text-lg font-semibold rounded-md hover:bg-blue-700 transition">Contact Us</button>
+            </div>
         </div>
     </nav>
 
-    <section id="home" class="relative h-screen overflow-hidden">
-        <div class="absolute inset-0">
-            <img class="slider fade" src="https://imgservice.rentbyowner.com/webp/1280x720/AzRT8xsWDLcQL9frPSuXFfBPP68gnzkfmgGPsxCmnowuVp_VK83QtIkP7Bd-6IIMwiROqRjek2XkrfkE6G3uzHpwnUZB0aQY6EHLJdZuzMf5Yq6cAvvqqvm9Twe2x3W81genEziHm-NVlCTx3z51k4nvV3BJYwhcP9e4EJ8YXo0CZXfvkhA=?property_id=BC-12834604&IgnoreDemoImage=true" alt="Slide 1">
-            <img class="slider fade" src="https://pix8.agoda.net/hotelImages/61298177/0/33e8a9300ec11b2edf14554a99a1d6c8.jpg?ce=0&s=1024x" alt="Slide 2">
-            <img class="slider fade" src="https://pix8.agoda.net/hotelImages/61298177/0/9b21c5642e11a5ec4fbd0d5a5bd022d8.jpg?ce=0&s=1024x" alt="Slide 3">
-            <img class="slider fade" src="https://pix8.agoda.net/hotelImages/61298177/0/680548ed9a1b7aaf12ea98bf2e72ba0b.jpg?ce=0&s=1024x" alt="Slide 4">
-            <img class="slider fade" src="https://thegirlwiththemujihat.com/wp-content/uploads/2023/04/329146411_860919898317206_8877698115607159720_n.jpeg" alt="Slide 5">
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden bg-blue-500 p-4 absolute top-16 left-0 w-full text-center space-y-3 md:hidden z-50">
+        <button onclick="location.href='index.html'" class="block w-full py-2 text-white text-lg hover:bg-blue-700">Home</button>
+        <button onclick="location.href='accommodations.html'" class="block w-full py-2 text-white text-lg hover:bg-blue-700">Accommodations</button>
+        <button onclick="location.href='amenities.html'" class="block w-full py-2 text-white text-lg hover:bg-blue-700">Amenities</button>
+        <button onclick="location.href='contact.html'" class="block w-full py-2 text-white text-lg hover:bg-blue-700">Contact Us</button>
+    </div>
 
+    <!-- Home Section -->
+    <section id="home" class="relative h-screen overflow-hidden flex items-center justify-center text-center">
+        <div class="absolute inset-0 flex">
+            <!-- Removed opacity-0 to make image visible -->
+            <img class="slider w-full h-full object-cover absolute transition-opacity duration-1000"
+                src="https://imgservice.rentbyowner.com/webp/1280x720/AzRT8xsWDLcQL9frPSuXFfBPP68gnzkfmgGPsxCmnowuVp_VK83QtIkP7Bd-6IIMwiROqRjek2XkrfkE6G3uzHpwnUZB0aQY6EHLJdZuzMf5Yq6cAvvqqvm9Twe2x3W81genEziHm-NVlCTx3z51k4nvV3BJYwhcP9e4EJ8YXo0CZXfvkhA=?property_id=BC-12834604&IgnoreDemoImage=true" 
+                alt="Slide 1">
         </div>
         <div class="absolute inset-0 bg-black opacity-50"></div>
-        <div class="container mx-auto text-center text-white relative z-10 flex flex-col items-center justify-center h-full px-4">
-            <h1 class="luxury-font">Where Elegance Meets Paradise.</h1>
-            <p class="mt-4 text-2xl md:text-2xl">Conveys the perfect blend of sophistication and natural beauty, offering guests a luxurious escape in a breathtaking setting.</p>
-            <a href="accommodations.html" class="booking-btn mt-2">Book Now</a>
+        <div class="relative z-10 px-4">
+            <h1 class="text-4xl md:text-6xl font-bold text-white">Where Elegance Meets Paradise.</h1>
+            <p class="mt-4 text-lg md:text-2xl text-white">Conveys the perfect blend of sophistication and natural beauty.</p>
+            <a href="accommodations.html" class="mt-4 bg-blue-500 hover:bg-blue-700 text-white py-3 px-6 rounded-lg text-lg font-semibold inline-block">Book Now</a>
         </div>
     </section>
 
-<script>
-    function toggleMenu() {
-        const menu = document.querySelector('.nav-menu');
-        menu.classList.toggle('active');
-    }
+    <!-- JavaScript -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const menu = document.getElementById("mobile-menu");
+            const burgerIcon = document.getElementById("burger-menu");
 
-    document.addEventListener('DOMContentLoaded', function() {
-        const slides = document.querySelectorAll('.slider');
-        let currentIndex = 0;
-
-        function showSlide(index) {
-            slides.forEach((slide, i) => {
-                slide.classList.toggle('fade', i === index);
+            burgerIcon.addEventListener("click", function (event) {
+                event.stopPropagation(); 
+                menu.classList.toggle("hidden");
             });
-        }
 
-        function nextSlide() {
-            currentIndex = (currentIndex + 1) % slides.length;
-            showSlide(currentIndex);
-        }
-
-        showSlide(currentIndex);
-        setInterval(nextSlide, 2000);
-    });
-</script>
-
+            document.addEventListener("click", function (event) {
+                if (!menu.contains(event.target) && !burgerIcon.contains(event.target)) {
+                    menu.classList.add("hidden");
+                }
+            });
+        });
+    </script>
 </body>
+    <!-- Footer Section -->
+    <footer class="bg-blue-500 text-white text-center py-6 mt-12">
+        <p class="text-lg font-semibold">© 2024 Recidencia Del Hamor. All Rights Reserved.</p>
+        <p class="text-sm">Designed by Rowan John R. Lido</p>
+        <p class="text-sm mt-2">Contact us: <a href="mailto:info@recidenciadelhamor.com" class="underline">info@recidenciadelhamor.com</a></p>
+    </footer>
+
 </html>
