@@ -3,9 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Accommodations page</title>
+    <title>Accommodations | Recidencia Del Hamor</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
     <link href="./output.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+
     <style>
         #details-modal .modal-content {
             display: flex;
@@ -277,24 +279,55 @@
 
     </script>
 </head>
-<body class="bg-white text-white">
-    <nav class="bg-blue-500 p-4 flex flex-col md:flex-row items-center justify-between gap-4 relative">
-        <div class="logo-container flex items-center">
-            <img src="https://th.bing.com/th/id/OIP.IhgWlJj9rzgxwht2bdpgSgHaFV?rs=1&pid=ImgDetMain" 
-            alt="Resort Logo" class="w-16 h-16 rounded-full object-cover">
-            <a href="index.html" class="text-white text-2xl resort-font ml-2">Recidencia Del Hamor</a>
-        </div>
-        <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
-        <div class="nav-menu">
-            <button class="nav-button" onclick="location.href='index.html'">Home</button>
-            <button class="nav-button" onclick="location.href='accommodations.html'">Accommodations</button>
-            <button class="nav-button" onclick="location.href='amenities.html'">Amenities</button>
-            <button class="nav-button" onclick="location.href='contact.html'">Contact Us</button>
+<body class="bg-gray-100 text-black">
+
+    <!-- Navbar -->
+    <nav class="bg-blue-500 p-4 fixed top-0 left-0 right-0 z-50 shadow-lg">
+        <div class="flex justify-between items-center relative pl-4"> 
+            <div class="flex items-center">
+                <img src="https://th.bing.com/th/id/OIP.IhgWlJj9rzgxwht2bdpgSgHaFV?rs=1&pid=ImgDetMain" 
+                    alt="Resort Logo" class="w-12 h-12 rounded-full object-cover">
+                <a href="index.html" class="text-white text-2xl ml-2">Recidencia Del Hamor</a>
+            </div>
+    
+            <!-- Burger Menu Icon -->
+            <div class="md:hidden text-white text-3xl cursor-pointer z-50 relative" id="burger-menu">&#9776;</div>
+            <div class="hidden md:flex space-x-4">
+                <button onclick="location.href='index.html'" class="px-5 py-3 bg-blue-500 text-white text-lg rounded-md hover:bg-blue-700 transition">Home</button>
+                <button onclick="location.href='accommodations.html'" class="px-5 py-3 bg-blue-500 text-white text-lg rounded-md hover:bg-blue-700 transition">Accommodations</button>
+                <button onclick="location.href='amenities.html'" class="px-5 py-3 bg-blue-500 text-white text-lg rounded-md hover:bg-blue-700 transition">Amenities</button>
+                <button onclick="location.href='contact.html'" class="px-5 py-3 bg-blue-500 text-white text-lg rounded-md hover:bg-blue-700 transition">Contact Us</button>
+            </div>
         </div>
     </nav>
 
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden bg-blue-500 p-4 absolute top-16 left-0 w-full text-center space-y-3 md:hidden z-50">
+        <button onclick="location.href='index.html'" class="block w-full py-2 text-white text-lg hover:bg-blue-700">Home</button>
+        <button onclick="location.href='accommodations.html'" class="block w-full py-2 text-white text-lg hover:bg-blue-700">Accommodations</button>
+        <button onclick="location.href='amenities.html'" class="block w-full py-2 text-white text-lg hover:bg-blue-700">Amenities</button>
+        <button onclick="location.href='contact.html'" class="block w-full py-2 text-white text-lg hover:bg-blue-700">Contact Us</button>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const menu = document.getElementById("mobile-menu");
+            const burgerIcon = document.getElementById("burger-menu");
+
+            burgerIcon.addEventListener("click", function (event) {
+                event.stopPropagation(); 
+                menu.classList.toggle("hidden");
+            });
+
+            document.addEventListener("click", function (event) {
+                if (!menu.contains(event.target) && !burgerIcon.contains(event.target)) {
+                    menu.classList.add("hidden");
+                }
+            });
+        });
+    </script>
+
     <!-- Modal -->
-    <button onclick="toggleModal()">Show Modal</button>
     <div id="details-modal" class="fixed inset-0 bg-white bg-opacity-50 flex justify-center items-center hidden">        <div class="bg-white p-6 rounded-lg shadow-2xl max-w-lg text-gray-900 relative">
             <div class="mt-4 flex justify-start">
                 <button onclick="closeModal()" class="bg-blue-500 text-white px-8 py-3 text-base font-medium rounded-lg hover:bg-gray-600 transition duration-300 w-fit">
@@ -309,7 +342,7 @@
             <p id="modal-details" class="text-lg mt-2 text-center"></p>
             <p id="modal-price" class="text-lg font-bold mt-3 text-center"></p>
             <p id="modal-guests" class="text-lg text-center mt-3"></p>
-            <a href="booking.html">
+            <a href="booking.html" >
                 <button class="bg-blue-600 text-white px-8 py-3 text-base font-medium rounded-lg hover:bg-blue-700 transition duration-300 mx-auto block mt-2">
                     Book Now
                 </button>
@@ -318,7 +351,7 @@
     </div>
 
     <section class="py-12 px-6 space-y-2 ">
-        <div class="container mx-auto text-center"><br><br>
+        <div class="container mx-auto text-center"><br><br><br><br>
             <h2 class="text-5xl font-semibold text-gray-900 mb-4">Choose Your Stay</h2>
             <p class="text-2xl text-gray-600 mb-6">Immerse Yourself in Coastal Luxury</p>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
